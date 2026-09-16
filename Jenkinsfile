@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat 'docker rm -f student-app || exit 0'
-                bat 'docker run -d --name student-app student-management:latest'
+                bat 'docker run -d --name student-app -p 8081:8080 student-management:latest'
             }
         }
     }
